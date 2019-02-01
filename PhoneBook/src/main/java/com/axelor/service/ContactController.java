@@ -6,10 +6,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.Query;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
@@ -47,7 +49,6 @@ public class ContactController {
 		}
 	}
 	
-	
 	@GET
 	public View viewdata(@Context HttpResponse response, 
 	                    @Context HttpRequest request) 
@@ -62,12 +63,21 @@ public class ContactController {
 		    	System.out.println(c.getCname());
 		    }
 		    request.setAttribute("mylist",list1);
-		    
-		   //return new View
-			//return new View("index.jsp", model, modelName);
-			return new View("index.jsp", list1, "contact");
-			
-		    
-		    
+		return new View("/index.jsp", list1, "contact");
+		
+	}
+	
+	@DELETE
+	@Path("delete/{id}")
+	public void delete(@PathParam("id") int id,@Context HttpResponse response, 
+	                    @Context HttpRequest request) 
+	{ 
+		ContactService.deletecontact(id);
+		try {
+			Response.status(200).contentLocation(new URI("http://localhost:8080/PhoneBook/index.jsp")).build();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

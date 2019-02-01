@@ -9,4 +9,5 @@ import com.axelor.pojo.Contact;
 public interface ContactService {
 		public void addcontact(Contact c);
 		public List<Contact> viewcontact();
+		public void deletecontact(int id);
 }

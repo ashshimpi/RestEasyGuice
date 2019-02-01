@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import com.google.inject.Singleton;
 
 @Entity
-@Table(name="PhoneData")
+
 @Singleton
 public class Contact {
 
