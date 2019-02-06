@@ -8,36 +8,43 @@ import javax.persistence.Table;
 import com.google.inject.Singleton;
 
 @Entity
-
 @Singleton
 public class Contact {
 
-	@Id	
+	@Id
 	@GeneratedValue
 	public int id;
 	public String cname;
-	public int cnumber;
-	
+	public long cnumber;
+
 	public Contact() {
-		
+
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getCname() {
 		return cname;
 	}
+
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
-	public int getCnumber() {
+
+	public long getCnumber() {
 		return cnumber;
 	}
-	public void setCnumber(int cnumber) {
+
+	public void setCnumber(long cnumber) {
 		this.cnumber = cnumber;
 	}
+
 	
+
 }

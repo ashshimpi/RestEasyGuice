@@ -7,7 +7,9 @@ import javax.persistence.Query;
 import com.axelor.pojo.Contact;
 
 public interface ContactService {
-		public void addcontact(Contact c);
-		public List<Contact> viewcontact();
-		public void deletecontact(int id);
+	public void addContact(Contact c);
+	public List<Contact> viewContact();
+	public void deleteContact(int id);
+	public void updateContact(int id,String cname,long cnumber);
+	
 }
